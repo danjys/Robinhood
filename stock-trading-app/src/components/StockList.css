@@ -21,5 +21,14 @@
 }
 
 .stock-change.down {
-    color: red;
+    color: rgb(245, 116, 116);
+}
+
+.company {
+    background-color: #222222;
+    height: 180px;
+}
+
+.stockTextColor {
+    color: #444444;
 }

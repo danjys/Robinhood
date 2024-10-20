@@ -12,13 +12,14 @@ npx tailwindcss init
 npm install react-helmet
 npm install react-helmet-async
 npm install recharts
-
+npm install @nextui-org/react framer-motion
 
 flask run or python app.py
 
 ``
 
 https://www.alphavantage.co/
+https://icons8.com/
 
 Tech Stack:
 

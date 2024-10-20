@@ -1,0 +1,130 @@
+/* App.css */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #1A1A1A;
+}
+
+
+/* Global app container */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn {
+  background-color: var(--primary-green);
+  border: none;
+  color: var(--secondary-white);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background-color: var(--button-hover);
+}
+
+.input {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary-green);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .stock-item {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}
+
+.stock-item {
+  transition: background-color 0.3s ease;
+}
+
+.stock-item:hover {
+  background-color: #f9f9f9;
+}
+
+/* Main content area */
+.main-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+/* StockChart section */
+.chart-section {
+  flex: 2;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* StockList section */
+.stock-list-section {
+  flex: 1;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}

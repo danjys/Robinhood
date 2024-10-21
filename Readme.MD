@@ -18,6 +18,11 @@ flask run or python app.py
 
 ``
 
+SOCKET IO
+FLASK
+REACT JS
+WEBSOCKETS
+
 https://www.alphavantage.co/
 https://icons8.com/
 

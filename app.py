@@ -5,6 +5,7 @@ from flask_socketio import SocketIO, emit
 import requests
 import os
 from flask_cors import CORS
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 CORS(app) # Enable Cross-Origin Resource Sharing
@@ -86,6 +87,33 @@ def handle_stock_request(json_data):
 
     emit('stock_update', {'price': stock_price})
 
+
+# Buy stock
+@app.route('/getquotes', methods=['POST'])
+def get_quotes():
+    data = request.json
+    stock_symbol = data['stock_symbol']
+
+    url = "https://finance.yahoo.com/quote/" + stock_symbol;
+    response = requests.get(url);
+    
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')
+        stock_price = soup.find('fin-streamer', {'data-field': 'regularMarketPrice'}).text
+        stock_price_change_today = soup.find('fin-streamer', {'data-field': 'regularMarketChange'}).text  
+        stock_price_percent_today = soup.find('fin-streamer', {'data-field': 'regularMarketChangePercent'}).text  
+
+        market_cap = soup.find('fin-streamer', {'data-field': 'marketCap'}).text
+        return jsonify({
+            'price' : stock_price,
+            'change' : stock_price_change_today,
+            'percent_change' : stock_price_percent_today,
+            'market_cap' : market_cap
+        })
+    else:
+        return jsonify({"NONE"})
+
+    
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()  # Create the tables

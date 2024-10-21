@@ -63,6 +63,7 @@ function App() {
             </div>
           </div>
 
+          {/*
           <h1>Stock Trading App</h1>
           <div>
             <label>Stock Symbol:</label>
@@ -76,7 +77,9 @@ function App() {
             <h2>Stock Price: ${stockPrice}</h2>
           </div>
           <button onClick={buyStock}>Buy 1 Share</button>
+          */}
         </div>
+
       </HelmetProvider>
     </NextUIProvider>
   );

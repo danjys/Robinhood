@@ -45,20 +45,7 @@ function StockList() {
   };
 
   return (
-    <div className="">
-      {/*
-    <div className="stock-list">
-      {stocks.map((stock, index) => (
-        <div className="stock-item" key={index}>
-          <span className="stock-name">{stock.name}</span>
-          <span className="stock-price">{stock.price}</span>
-          <span className={`stock-change ${stock.change.startsWith('+') ? 'up' : 'down'}`}>
-            {stock.change}
-          </span>
-        </div>
-      ))}
-    </div>
-*/}
+
       <div className="grid gap-2 grid-cols-4">
 
         {stocks.map((stock, index) => (
@@ -92,7 +79,6 @@ function StockList() {
           </Card>
         ))}
       </div>
-    </div>
   );
 }
 

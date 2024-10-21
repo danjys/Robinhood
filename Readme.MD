@@ -14,6 +14,10 @@ npm install react-helmet-async
 npm install recharts
 npm install @nextui-org/react framer-motion
 
+
+pip install python-dotenv
+pip install newsapi-python
+
 flask run or python app.py
 
 ``
@@ -22,6 +26,7 @@ SOCKET IO
 FLASK
 REACT JS
 WEBSOCKETS
+AXIOS
 
 https://www.alphavantage.co/
 https://icons8.com/

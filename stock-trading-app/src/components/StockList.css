@@ -32,3 +32,12 @@
 .stockTextColor {
     color: #444444;
 }
+
+.stockMiniText {
+    font-size: xx-small;
+}
+
+.stickyRight{
+    margin-left: auto; 
+    margin-right: 0;
+}

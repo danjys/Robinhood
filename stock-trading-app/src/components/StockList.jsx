@@ -12,17 +12,17 @@ import './StockList.css';
 
 function StockList() {
   const [stocks, setStocks] = useState([
-    { scrape:{name: 'APPLE', price: '$145.67', change: '+1.24%'}, symbol: AAPL },
-    { scrape:{name: 'MSFT', price: '$680.50', change: '-2.12%'}, symbol: MSFT },
-    { scrape:{name: 'GOOGLE', price: '$145.67', change: '+1.24%'}, symbol: GOOG },
-    { scrape:{name: 'AMAZON', price: '$680.50', change: '-2.12%'}, symbol: AMZN },
-    { scrape:{name: 'META', price: '$145.67', change: '+1.24%'}, symbol: META },
-    { scrape:{name: 'NVIDIA', price: '$680.50', change: '-2.12%'}, symbol: NVDA },
-    { scrape:{name: 'TESLA', price: '$680.50', change: '-2.12%'}, symbol: TSLA },
+    { scrape: { name: 'APPLE', price: '$145.67', change: '+1.24%', market_cap: '', percent_change: '' }, symbol: AAPL },
+    { scrape: { name: 'MSFT', price: '$680.50', change: '-2.12%', market_cap: '', percent_change: '' }, symbol: MSFT },
+    { scrape: { name: 'GOOGLE', price: '$145.67', change: '+1.24%', market_cap: '', percent_change: '' }, symbol: GOOG },
+    { scrape: { name: 'AMAZON', price: '$680.50', change: '-2.12%', market_cap: '', percent_change: '' }, symbol: AMZN },
+    { scrape: { name: 'META', price: '$145.67', change: '+1.24%', market_cap: '', percent_change: '' }, symbol: META },
+    { scrape: { name: 'NVIDIA', price: '$680.50', change: '-2.12%', market_cap: '', percent_change: '' }, symbol: NVDA },
+    { scrape: { name: 'TESLA', price: '$680.50', change: '-2.12%', market_cap: '', percent_change: '' }, symbol: TSLA },
     // More stock data
   ]);
 
-  const symbols = [ "AAPL", "MSFT", "GOOG", "AMZN", "META", "NVDA", "TSLA"];
+  const symbols = ["AAPL", "MSFT", "GOOG", "AMZN", "META", "NVDA", "TSLA"];
 
   useEffect(() => {
     symbols.forEach((tickersymbol, index) => {
@@ -33,14 +33,14 @@ function StockList() {
   const getQuotes = async (stockSymbol, index) => {
     await axios.post(
       "http://localhost:5000/getquotes",
-      { stock_symbol: stockSymbol}
+      { stock_symbol: stockSymbol }
     ).then(response => {
       let stockObject = response.data;
       stockObject.name = stockSymbol;
       const newStocks = stocks;
       newStocks[index].scrape = stockObject;
       setStocks(newStocks);
-      //console.log(stocks[index].scrape);
+      console.log(stocks[index].scrape);
     });
   };
 
@@ -64,7 +64,12 @@ function StockList() {
         {stocks.map((stock, index) => (
           <Card className="company">
             <CardHeader className="absolute z-10 top-1 flex-col !items-start">
+              <div className='stickyRight'>
+                <h6 className={`stockMiniText stock-change ${stock.scrape.change.startsWith('+') ? 'up' : 'down'}`}>{stock.scrape.percent_change}</h6>
+              </div>
+
               <h4 className="stockTextColor uppercase font-bold">{stock.scrape.name}</h4>
+              <h6 className=' stockMiniText stockTextColor'>{stock.scrape.market_cap}</h6>
 
             </CardHeader>
             <div className='h-screen flex items-center justify-center'>
@@ -76,7 +81,12 @@ function StockList() {
             </div>
 
             <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-              <h6 className={` text-small stock-change ${stock.scrape.change.startsWith('+') ? 'up' : 'down'}`} >{stock.scrape.price}</h6>
+              <div className='flex gap-4 flex-row'>
+                <h6 className={` text-small stock-change ${stock.scrape.change.startsWith('+') ? 'up' : 'down'}`} >{stock.scrape.price}</h6>
+
+
+              </div>
+
             </CardFooter>
 
           </Card>

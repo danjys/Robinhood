@@ -8,17 +8,17 @@ import META from "./images/symbols/META.png";
 import NVDA from "./images/symbols/NVDA.png";
 import GOOG from "./images/symbols/GOOG.png";
 import axios from "axios";
-import './StockList.css';
+import './portfolio.css';
 
-function StockList() {
+function Portfolio() {
   const [stocks, setStocks] = useState([
-    { scrape: { name: 'APPLE', price: '$145.67', change: '+1.24%', market_cap: '', percent_change: '' }, symbol: AAPL },
-    { scrape: { name: 'MSFT', price: '$680.50', change: '-2.12%', market_cap: '', percent_change: '' }, symbol: MSFT },
-    { scrape: { name: 'GOOGLE', price: '$145.67', change: '+1.24%', market_cap: '', percent_change: '' }, symbol: GOOG },
-    { scrape: { name: 'AMAZON', price: '$680.50', change: '-2.12%', market_cap: '', percent_change: '' }, symbol: AMZN },
-    { scrape: { name: 'META', price: '$145.67', change: '+1.24%', market_cap: '', percent_change: '' }, symbol: META },
-    { scrape: { name: 'NVIDIA', price: '$680.50', change: '-2.12%', market_cap: '', percent_change: '' }, symbol: NVDA },
-    { scrape: { name: 'TESLA', price: '$680.50', change: '-2.12%', market_cap: '', percent_change: '' }, symbol: TSLA },
+    { scrape: { name: 'APPLE', price: '', change: '', market_cap: '', percent_change: '' }, symbol: AAPL },
+    { scrape: { name: 'MSFT', price: '', change: '', market_cap: '', percent_change: '' }, symbol: MSFT },
+    { scrape: { name: 'GOOGLE', price: '', change: '', market_cap: '', percent_change: '' }, symbol: GOOG },
+    { scrape: { name: 'AMAZON', price: '', change: '', market_cap: '', percent_change: '' }, symbol: AMZN },
+    { scrape: { name: 'META', price: '', change: '', market_cap: '', percent_change: '' }, symbol: META },
+    { scrape: { name: 'NVIDIA', price: '', change: '', market_cap: '', percent_change: '' }, symbol: NVDA },
+    { scrape: { name: 'TESLA', price: '', change: '', market_cap: '', percent_change: '' }, symbol: TSLA },
     // More stock data
   ]);
 
@@ -46,7 +46,7 @@ function StockList() {
 
   return (
 
-      <div className="grid gap-2 grid-cols-4">
+      <div className="paddingDiv grid gap-2 grid-cols-4">
 
         {stocks.map((stock, index) => (
           <Card className="company">
@@ -82,4 +82,4 @@ function StockList() {
   );
 }
 
-export default StockList;
+export default Portfolio;

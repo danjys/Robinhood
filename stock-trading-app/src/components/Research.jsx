@@ -1,8 +1,9 @@
 
 import React, { useEffect, useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+import './research.css'; //  CSS file for styling
 
-const StockChart = () => {
+const Research = () => {
     const [primaryGreen, setPrimaryGreen] = useState('#00C805'); // Fallback color
   
     useEffect(() => {
@@ -32,4 +33,4 @@ const StockChart = () => {
     );
   };
 
-export default StockChart;
+export default Research;

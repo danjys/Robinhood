@@ -3,8 +3,11 @@ import axios from "axios";
 import { subscribeToStock } from "./services/sockets";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import NavBar from './components/NavBar'; // Ensure these components are properly imported
-import StockList from './components/StockList';
-import StockChart from './components/StockChart';
+import Portfolio from './components/Portfolio';
+import Research from './components/Research';
+import Invest from './components/Invest';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 // 1. import `NextUIProvider` component
 import { NextUIProvider } from "@nextui-org/react";
 
@@ -53,15 +56,18 @@ function App() {
               rel="stylesheet"
             />
           </Helmet>
-          {/* The NavBar will go at the top */}
-          <NavBar />
 
-          {/* Main content area */}
-          <div className="main-content">
-            <div className="stock-list-section">
-              <StockList />
-            </div>
-          </div>
+          <Router>
+            <NavBar />
+            <Routes>
+              {/* Default landing page */}
+              <Route path="/" element={<Portfolio />} />
+              {/* Other routes */}
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/research" element={<Research />} />
+              <Route path="/invest" element={<Invest />} />
+            </Routes>
+          </Router>
 
           {/*
           <h1>Stock Trading App</h1>
@@ -79,10 +85,10 @@ function App() {
           <button onClick={buyStock}>Buy 1 Share</button>
           */}
         </div>
-
       </HelmetProvider>
     </NextUIProvider>
   );
 }
 
 export default App;
+

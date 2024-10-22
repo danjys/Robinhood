@@ -1,5 +1,5 @@
 
-Portfolio: 
+# ARROW 
 
 ![Portfolio](documentation/assets/portfolio.png)
 
@@ -67,8 +67,8 @@ Basic Folder Structure:
     src/components: For reusable React components
     src/services: For API and WebSocket connections
 
-
- ``
+## REQUIREMENTS
+``` bash
 pip install beautifulsoup4
 pip install requests
 pip install Flask Flask-SQLAlchemy Flask-JWT-Extended Flask-SocketIO
@@ -84,19 +84,20 @@ npm install react-helmet-async
 npm install recharts
 npm install @nextui-org/react framer-motion
 
-
 pip install python-dotenv
 pip install newsapi-python
 
 flask run or python app.py
+```
 
-``
-
-SOCKET IO
-FLASK
-REACT JS
-WEBSOCKETS
-AXIOS
-
-https://www.alphavantage.co/
-https://icons8.com/   
+## RESOURCES
+> [!TIP]
+> - undraw
+> - lottie files
+> - SOCKET IO
+> - FLASK
+> - REACT JS
+> - WEBSOCKETS
+> - AXIOS
+> - https://www.alphavantage.co/
+> - https://icons8.com/   
